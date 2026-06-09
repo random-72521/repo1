@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Os</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body style="background-image: url(./background.png);background-size:cover"> <!--background-->
+        <!--about-->
+        <div id = "welcome" style="position: absolute; top:50%; left: 50%; transform: translate(-50%, -100%); 
+        border-radius: 8px; padding: 2px; width: 256px; background-color: rgba(190, 190, 190, 0.7); backdrop-filter: blur(10px);"> <!--welcome-->
+            <div class = "header">
+                <div style = "margin-right: auto;font-family:'Courier New', Courier, monospace">
+                    <b>About this OS</b>
+                </div>
+                <div class = "maximize">
+                    ☐
+                </div>
+                <div class = "minimize">
+                    —
+                </div>
+                <div class = "close">
+                    ✖
+                </div>
+
+            </div>
+
+            <div style = "display: flex; flex-direction: column; align-items: center; justify-content: center"> <!--welcome content-->
+                <p>
+                                                        
+                </p>
+
+                <img style="width: 128px; height: 128px; border-radius: 16px" src="Os.png" />
+
+
+                <p style = "font-family:'Courier New', Courier, monospace">
+                    A web-based operating system that exists purely to flex on rishith-c's project and native apps.
+                </p>
+            </div>
+                
+
+        </div>
+        <div style="border: outset; border-color: black; border-radius: 8px; padding: 2px; width: 1654px; height: 30px;  
+        display: flex; justify-content: flex-end; background-color: rgba(190, 190, 190, 0.7); align-items:center; gap: 25px"> <!--info stuff-->
+            <p id="Time"> Time </p>
+            <p id="Date"> Date </p>
+            <p id="Battery"> Battery</p>
+                
+            </p>
+        </div>
+
+        <div style = "width: 1640px; height: 100px; border-radius: 16px; padding: 2px;
+        position: absolute; top: 99%; left: 50%; transform: translate(-50%, -100%); background-color: rgba(255, 255, 255, 0.1); 
+        backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; gap: 10px"> <!--dock-->
+
+            <div id = "welcomeopen" class = "appbutton"> <!--open welcome-->
+                About
+            </div>
+
+            <div 
+            id = "notepadopen" class = "appbutton">
+                <img style="width: 90px; height:90px; border-radius: 16px" src="Notepad-removebg-preview.png" />
+            </div>
+
+            <div class = "appbutton">
+                <img style="width: 90px; height:90px; border-radius: 16px" src="files.png" />
+            </div>
+
+
+        </div>
+        <div id = "notepad" style="display: flex; position: absolute; top:50%; left: 50%; transform: translate(-50%, -100%);
+        border-radius: 8px; padding: 2px; width: 384px; background-color: rgba(190, 190, 190, 0.7); backdrop-filter: blur(10px);
+        align-items: flex-end; justify-content: flex-end"> <!--notepad-->
+            <div class = "header">
+                <div style = "margin-right: auto; font-family:'Courier New', Courier, monospace">
+                    <b>Notepad</b>
+                </div>
+                 <div class = "maximize"> 
+                    ☐
+                 </div>
+                 <div class = "minimize">
+                    —
+                </div>
+                <div class = "close">
+                    ✖
+                </div>
+
+            </div>
+            <div style = "display: flex; align-items: flex-start; padding: 2px; gap: 2px">
+                <div class = "note">   
+                    Hello world 
+                </div>
+
+                <textarea id = "textarea" placeholder="Type here..." style = "width: 100%; height: 250px; border-radius: 8px;"></textarea>
+            </div>
+
+        </div>
+
+        <!--script for time-->
+        <script> 
+            function doTime() {
+                const timeText = document.querySelector("#Time");
+                const dateText = document.querySelector("#Date");
+                timeText.innerHTML = new Date().toLocaleTimeString();
+                dateText.innerHTML = new Date().toLocaleDateString();
+            }
+            setInterval(doTime, 1000);
+            doTime();
+        </script>
+        <script src = "script.js" ></script>
+    </body>
+</html>
