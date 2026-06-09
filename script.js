@@ -1,33 +1,25 @@
 dragElement(document.querySelector("#welcome")) //element to be dragged
 dragElement(document.querySelector("#notepad")) //element to be dragged
 
+let notes = [{title: "Hello world!", text: "Goodbye cruel world!"}]
+console.log(notes[0])
+
 const images = ["100%_charging"]
 
 
-navigator.getBattery().then(battery => { //get battery info and call update to display it
-    document.getElementById("Battery").textContent = "Battery Level: " + parseInt(battery.level * 100) + "%" + ", " + 
-    (battery.charging ? "Charging" : "Not Charging"); //display battery level and charging status   
+navigator.getBattery().then(battery => {
+  function update() {
+    const level = Math.round(battery.level * 100 / 10) * 10;
+    const charging = battery.charging ? "_charging" : "";
+    const png_name = `${level}%${charging}.png`;
+    console.log(png_name);
+    document.getElementById("battery-icon").src = `charging_symbols/${png_name}`;
+  }
 
-    battery.addEventListener("levelchange", update);
-    battery.addEventListener("chargingchange", update);
+  update(); // run immediately on load
 
-
-
-
-    function update() { //function to update battery info when it changes
-        document.getElementById("Battery").textContent = "Battery Level: " + parseInt(battery.level * 100) + "%" + ", " + 
-        (battery.charging ? "charging" : "Not Charging"); 
-
-        const level = Math.round(battery.level * 100 / 10) * 10;
-        const charging = battery.charging ? "_charging" : "";
-        const png_name = `${level}${"%"}${charging}.png`;
-        console.log(png_name)
-        
-
-        
-
-}
-
+  battery.addEventListener("chargingchange", update);
+  battery.addEventListener("levelchange", update);
 });
 
 
